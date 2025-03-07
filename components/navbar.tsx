@@ -30,7 +30,7 @@ export default function Navbar({ }): any {
             </div>
             <div className="items-center hidden gap-2 md:flex">
                 <ModeToggle />
-                <Link href="https://github.com/chaso13/convertiflo">
+                <Link href="https://github.com/chaso13/convertiflo2.0">
                     <Button
                         variant="default"
                         className="items-center hidden gap-2 bg-teal-200 rounded-full w-fit md:flex"
