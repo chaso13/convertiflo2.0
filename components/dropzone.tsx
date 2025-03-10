@@ -34,6 +34,7 @@ const extensions = {
   image: [
     "jpg",
     "jpeg",
+    "heic",
     "png",
     "gif",
     "bmp",
@@ -82,6 +83,7 @@ export default function Dropzone() {
   const accepted_files = {
     "image/*": [
       ".jpg",
+      ".heic",
       ".jpeg",
       ".png",
       ".gif",
@@ -443,7 +445,7 @@ export default function Dropzone() {
                   <LuFileSymlink />
                 </div>
                 <h3 className="text-center font-medium text-2xl">
-                  Yes, right there
+                  Drop it like its hot!
                 </h3>
               </>
             ) : (
