@@ -271,7 +271,7 @@ export default function Dropzone() {
                 <span>Convert to</span>
     <Select
       onValueChange={(value) => updateAction(action.file_name, value)} // ✅ Simple update
-      value={action.to || ""} // ✅ Tied to individual file's `to` field
+      value={action.to ? String(action.to) : ""} // ✅ Tied to individual file's `to` field
     >
   <SelectTrigger className="w-32 outline-none focus:outline-none focus:ring-0 text-center text-muted-foreground bg-background text-md font-medium">
     <SelectValue placeholder="..." />
