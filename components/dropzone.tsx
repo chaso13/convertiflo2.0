@@ -184,19 +184,16 @@ export default function Dropzone() {
   };
   const handleHover = (): void => setIsHover(true);
   const handleExitHover = (): void => setIsHover(false);
- const updateAction = (file_name: string, to: string) => {
-  setActions(
-    actions.map((action): Action => {
-      if (action.file_name === file_name) {
-        return {
-          ...action,
-          to: to,
-        };
-      }
-      return action;
-    })
-  );
-};
+  const updateAction = (file_name: string, to: string) => {
+    setActions(
+      actions.map((action) => {
+        if (action.file_name === file_name) {
+          return { ...action, to }; // Update only the matching file
+        }
+        return action;
+      })
+    );
+  };
 
   const checkIsReady = (): void => {
     let tmp_is_ready = true;
@@ -272,16 +269,10 @@ export default function Dropzone() {
             ) : (
               <div className="text-muted-foreground text-md flex items-center gap-4">
                 <span>Convert to</span>
-              <Select
-    // Set default format category based on file type
-    onValueChange={(value) => {
-    let formatCategory = "video";
-    if (action.file_type.includes("image")) formatCategory = "image";
-    if (action.file_type.includes("audio")) formatCategory = "audio";
-    
-    updateAction(action.file_name, value);
-  }}value={action.to || ""} // Use individual action's 'to' value
-  >
+    <Select
+      onValueChange={(value) => updateAction(action.file_name, value)} // ✅ Simple update
+      value={action.to || ""} // ✅ Tied to individual file's `to` field
+    >
   <SelectTrigger className="w-32 outline-none focus:outline-none focus:ring-0 text-center text-muted-foreground bg-background text-md font-medium">
     <SelectValue placeholder="..." />
   </SelectTrigger>
